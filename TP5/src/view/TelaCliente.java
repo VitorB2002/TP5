@@ -1,19 +1,19 @@
 package view;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
 
 
 public class TelaCliente implements ActionListener{
-	private static JFrame janela = new JFrame("Gestor de Clientes");
+	private static JFrame janelaCliente = new JFrame("Gestor de Clientes");
 	
 	private static JButton listar = new JButton("Listar Clientes");
 	private static JButton cadastrar = new JButton("Cadastrar Clientes");
 	private static JButton buscar = new JButton("Buscar Cliente");
 	private static JButton ajuda = new JButton("Ajuda");
 	private static ControleDados dados;
+	private static String[] dadosCliente = new String[5];
 	
 	public void mostrarTela(ControleDados d) {
 		
@@ -26,13 +26,13 @@ public class TelaCliente implements ActionListener{
 		ajuda.setBounds(120, 250, 150, 60);;
 		
 		//Adicionando componentes ao JFrame
-		janela.setLayout(null);
-		janela.add(ajuda);
-		janela.add(listar);
-		janela.add(cadastrar);
-		janela.add(buscar);
-		janela.setSize(400, 400);
-		janela.setVisible(true);
+		janelaCliente.setLayout(null);
+		janelaCliente.add(ajuda);
+		janelaCliente.add(listar);
+		janelaCliente.add(cadastrar);
+		janelaCliente.add(buscar);
+		janelaCliente.setSize(400, 400);
+		janelaCliente.setVisible(true);
 		
 		listar.addActionListener(this);
 		cadastrar.addActionListener(this);
@@ -43,16 +43,17 @@ public class TelaCliente implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
+		
 		if (src == listar) {
-			new TelaAuxCliente().auxClient(1, dados);
+			new TelaAuxCliente().auxClient(1, dados, dadosCliente);
 		}
 		
 		if (src == cadastrar) {
-			new TelaAuxCliente().auxClient(2, dados);
+			new TelaAuxCliente().auxClient(2, dados, dadosCliente);
 		}
 		
 		if (src == buscar) {
-			new TelaAuxCliente().auxClient(3, dados);
+			new TelaAuxCliente().auxClient(3, dados, dadosCliente);
 		}
 		
 		if (src == ajuda) {

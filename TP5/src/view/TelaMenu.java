@@ -16,7 +16,6 @@ public class TelaMenu implements ActionListener {
 	private static JButton relatorio = new JButton("Relatorios");
 	private static JButton historico = new JButton("Historicos");
 	private static JButton ajuda = new JButton("Ajuda");
-	private static String[] dadosCliente = new String[5];
 	private static ControleDados dados = new ControleDados();
 	private static ControleEstoque estoque = new ControleEstoque(); 
 	
