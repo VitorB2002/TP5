@@ -24,6 +24,10 @@ public class Estoque {
 		this.capas.set(pos, capa);
 	}
 	
+	public void deletaCapa(int pos) {
+		this.capas.remove(pos);
+	}
+	
 	public void cadastraCarregador(Carregador carregador) {
 		this.carregadores.add(carregador);
 	}

@@ -12,7 +12,7 @@ public class TelaAuxCliente implements ActionListener{
 	private JFrame lista = new JFrame("Lista Clientes");
 	private JFrame edita = new JFrame("Editar Cliente");
 	private JFrame busca = new JFrame("Buscar Cliente");
-	private JFrame cadastra = new JFrame("Cadastrar Clientes");
+	private JFrame cadastra = new JFrame();
 	private JLabel titulo = new JLabel();
 	private JLabel nome = new JLabel("Nome: ");
 	private JLabel cpf = new JLabel("CPF: ");
@@ -36,7 +36,7 @@ public class TelaAuxCliente implements ActionListener{
 	private boolean sucesso;
 	private int qtdClientes;
 	private int opcao;
-	private int auxAjuda;
+	private int auxAjuda; //auxAjuda é o indexador das mensagens de ajuda
 	
 	public void auxClient(int op, ControleDados d, String[] vetor) {
 		
@@ -85,6 +85,7 @@ public class TelaAuxCliente implements ActionListener{
 			
 			if(sucesso) {
 				mensagemSucessoCadastro();
+				salvar.removeActionListener(this);
 			}	else {
 				mensagemFalhaCadastro();
 			}
@@ -108,6 +109,7 @@ public class TelaAuxCliente implements ActionListener{
 			
 			if(sucesso) {
 				mensagemSucessoBusca();
+				buscar.removeActionListener(this);
 				auxAjuda = 4;
 				editaCliente(posicao);
 			} else {
@@ -128,10 +130,11 @@ public class TelaAuxCliente implements ActionListener{
 			
 			if(sucesso) {
 				mensagemSucessoEditar();
+				editar.removeActionListener(this);
 			}	else {
 				mensagemFalhaEditar();
 			}
-			sucesso = dados.editarCadastrarCliente(dadosCliente, opcao, posicao);
+			
 		}
 		
 		if(src == refresh) {
@@ -388,7 +391,5 @@ public class TelaAuxCliente implements ActionListener{
 		}
 
 	}
-	
-	
 	
 }

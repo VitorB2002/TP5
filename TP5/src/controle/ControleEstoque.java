@@ -107,7 +107,7 @@ private Estoque e = new Estoque();
 		return true;
 	}
 	
-public boolean editarVenda(String[] dadosCliente, String[] dadosProduto, int opcao, int pos) {
+	public boolean editarVenda(String[] dadosCliente, String[] dadosProduto, int opcao, int pos) {
 		
 		Cliente cliente = new Cliente(dadosCliente[0], dadosCliente[1], dadosCliente[2], dadosCliente[3], dadosCliente[4]);
 		Capa capa = new Capa();
@@ -194,6 +194,14 @@ public boolean editarVenda(String[] dadosCliente, String[] dadosProduto, int opc
 			
 		}
 		return true;
+	}
+
+	public void deletaProduto(int pos, int opcao) {
+		switch(opcao) {
+			case 1:
+				e.deletaCapa(pos);
+			break;
+		}
 	}
 	
 	public boolean editarCadastrarProduto(String[] dadosProduto, int opcao, int pos) {

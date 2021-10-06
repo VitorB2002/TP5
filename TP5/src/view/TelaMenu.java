@@ -73,6 +73,7 @@ public class TelaMenu implements ActionListener {
 		
 		if(src == relatorio)
 			mensagemInfo();
+		
 		if(src == historico)
 			mensagemInfo();
 		

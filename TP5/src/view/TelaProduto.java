@@ -6,47 +6,36 @@ import javax.swing.*;
 import controle.*;
 
 public class TelaProduto implements ActionListener{
-	private static JFrame janela = new JFrame("Gestor de Produtos");
-	private static JFrame lista = new JFrame("Lista Produtos");
-	private static JLabel titulo = new JLabel("PRODUTOS");
-	private static JButton capa = new JButton("Capa");
-	private static JButton carregador = new JButton("Carregador");
-	private static JButton fone = new JButton("Fone");
-	private static JButton listar = new JButton("Listar");
-	private static JButton ajuda = new JButton("Ajuda");
-	private static JButton pelicula = new JButton("Pelicula");
+	private JFrame janela = new JFrame("Gestor de Produtos");
+	private JLabel titulo = new JLabel("PRODUTOS");
+	private JButton cadastro = new JButton("Cadastro");
+	private JButton busca = new JButton("Busca");
+	private JButton deleta = new JButton("Deletar");
+	private JButton ajuda = new JButton("Ajuda");
 	private static ControleEstoque estoque;
-	
-	int aux;
 	
 	public void mostrarTela(ControleEstoque e) {
 		estoque = e;
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
 		titulo.setBounds(135, 30, 150, 30);
 		
-		capa.setBounds(140, 90, 100, 30);
-		carregador.setBounds(140, 140, 100, 30);
-		pelicula.setBounds(140, 190, 100, 30);
-		fone.setBounds(140, 240, 100, 30);
-		listar.setBounds(140, 290, 100, 30);
-		ajuda.setBounds(140, 340, 100, 30);
+		cadastro.setBounds(140, 90, 100, 30);
+		busca.setBounds(140, 140, 100, 30);
+		deleta.setBounds(140, 190, 100, 30);
+		ajuda.setBounds(140, 240, 100, 30);
 		
 		janela.add(titulo);
 		janela.setLayout(null);
-		janela.setSize(400, 450);
-		janela.add(capa);
-		janela.add(carregador);
-		janela.add(fone);
-		janela.add(pelicula);
-		janela.add(listar);
+		janela.setSize(400, 400);
+		janela.add(cadastro);
+		janela.add(busca);
+		janela.add(deleta);
 		janela.add(ajuda);
 		
 		janela.setVisible(true);
-		capa.addActionListener(this);
-		carregador.addActionListener(this);
-		pelicula.addActionListener(this);
-		fone.addActionListener(this);
-		listar.addActionListener(this);
+		cadastro.addActionListener(this);
+		busca.addActionListener(this);
+		deleta.addActionListener(this);
 		ajuda.addActionListener(this);
 		
 	}
@@ -54,46 +43,23 @@ public class TelaProduto implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
-		if (src == capa) {
-			aux = 8;
-			String[] dadosProduto = new String[aux];
-			new TelaAuxProduto().auxProduto(1, dadosProduto, estoque);
+		if (src == cadastro) {
+			new TelaCadastro().cadastra(estoque);
 		}
 		
-		if (src == carregador) {
-			aux = 6;
-			String[] dadosProduto = new String[aux];
-			new TelaAuxProduto().auxProduto(2, dadosProduto, estoque);
+		if (src == busca) {
+			new TelaBusca().buscaProduto(estoque);
 		}
 		
-		if (src == pelicula) {
-			aux = 8;
-			String[] dadosProduto = new String[aux];
-			new TelaAuxProduto().auxProduto(3, dadosProduto, estoque);
-		}
 		
-		if (src == fone) {
-			aux = 9;
-			String[] dadosProduto = new String[aux];
-			new TelaAuxProduto().auxProduto(4, dadosProduto, estoque);
+		if (src == deleta) {
+			new TelaDeleta().buscaProduto(estoque);
 		}
 		
 		if (src == ajuda) {
 			mensagemAjuda();
 		}
 		
-		if (src == listar) {
-			
-			titulo = new JLabel("Filtrar Por");
-			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(135, 30, 150, 30);
-			
-			lista.setLayout(null);
-			lista.setSize(400, 400);
-			lista.setVisible(false);
-			mensagemInfo();
-			lista.dispose();
-		}
 	}
 	
 	public void mensagemAjuda() {

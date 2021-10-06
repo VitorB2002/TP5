@@ -6,14 +6,14 @@ import controle.*;
 
 
 public class TelaCliente implements ActionListener{
-	private static JFrame janelaCliente = new JFrame("Gestor de Clientes");
+	private JFrame janelaCliente = new JFrame("Gestor de Clientes");
 	
-	private static JButton listar = new JButton("Listar Clientes");
-	private static JButton cadastrar = new JButton("Cadastrar Clientes");
-	private static JButton buscar = new JButton("Buscar Cliente");
-	private static JButton ajuda = new JButton("Ajuda");
+	private JButton listar = new JButton("Listar Clientes");
+	private JButton cadastrar = new JButton("Cadastrar Clientes");
+	private JButton buscar = new JButton("Buscar Cliente");
+	private JButton ajuda = new JButton("Ajuda");
 	private static ControleDados dados;
-	private static String[] dadosCliente = new String[5];
+	private String[] dadosCliente = new String[5];
 	
 	public void mostrarTela(ControleDados d) {
 		
