@@ -36,6 +36,10 @@ public class Estoque {
 		this.carregadores.set(pos, carregador);
 	}
 	
+	public void deletaCarregador(int pos) {
+		this.carregadores.remove(pos);
+	}
+	
 	public void cadastraPelicula(Pelicula pelicula) {
 		this.peliculas.add(pelicula);
 	}
@@ -44,12 +48,20 @@ public class Estoque {
 		this.peliculas.set(pos, pelicula);
 	}
 	
+	public void deletaPelicula(int pos) {
+		this.peliculas.remove(pos);
+	}
+	
 	public void cadastraFone(Fone fone) {
 		this.fones.add(fone);
 	}
 	
 	public void editaFone(Fone fone, int pos) {
 		this.fones.set(pos, fone);
+	}
+	
+	public void deletaFone(int pos) {
+		this.fones.remove(pos);
 	}
 	
 	public void cadastraVenda(Venda venda) {

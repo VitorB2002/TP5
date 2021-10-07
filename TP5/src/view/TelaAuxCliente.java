@@ -85,6 +85,7 @@ public class TelaAuxCliente implements ActionListener{
 			
 			if(sucesso) {
 				mensagemSucessoCadastro();
+				cadastra.dispose();
 				salvar.removeActionListener(this);
 			}	else {
 				mensagemFalhaCadastro();

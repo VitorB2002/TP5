@@ -78,7 +78,10 @@ public class TelaVenda implements ActionListener{
 			dadosCliente[0] = inNome.getText();
 			aux = inModelo.getText();
 			
+			//estoque > 0 pois não temos dados pré cadastrados de venda
+			
 			if(estoque.getEstoque().getVendas().size() > 0) {
+				
 					//Buscando capas que deem match
 					tamanho = estoque.getEstoque().getCapas().size();
 					
@@ -188,6 +191,7 @@ public class TelaVenda implements ActionListener{
 					
 					if(sucessoCliente && sucessoProduto) {
 						mensagemSucessoEditar();
+						escolhaEditar.removeActionListener(this);
 						posicao = 0;
 						estoque.editarVenda(dadosCliente, dadosProduto, opcao, posicao);
 					} else {
@@ -299,8 +303,6 @@ public class TelaVenda implements ActionListener{
 				}
 			}
 			
-			
-			
 			tamanho = dados.getDados().getClientes().size();
 			
 			for(int i = 0; i < tamanho; i++) {
@@ -318,6 +320,8 @@ public class TelaVenda implements ActionListener{
 			
 			if(sucessoCliente && sucessoProduto) {
 				mensagemSucessoCadastro();
+				escolha.removeActionListener(this);
+				janela.dispose();
 				estoque.cadastrarVenda(dadosCliente, dadosProduto, opcao);
 			} else {
 				mensagemFalhaCadastro();

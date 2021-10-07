@@ -51,7 +51,6 @@ public class TelaProduto implements ActionListener{
 			new TelaBusca().buscaProduto(estoque);
 		}
 		
-		
 		if (src == deleta) {
 			new TelaDeleta().buscaProduto(estoque);
 		}

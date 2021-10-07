@@ -198,9 +198,23 @@ private Estoque e = new Estoque();
 
 	public void deletaProduto(int pos, int opcao) {
 		switch(opcao) {
+		
 			case 1:
 				e.deletaCapa(pos);
 			break;
+			
+			case 2:
+				e.deletaCarregador(pos);
+			break;
+			
+			case 3:
+				e.deletaPelicula(pos);
+			break;
+			
+			case 4:
+				e.deletaFone(pos);
+			break;
+			
 		}
 	}
 	
@@ -313,15 +327,13 @@ private Estoque e = new Estoque();
 					e.editaCarregador(carregador, pos);
 				}
 				
-				
 			break;
 			
 			case 5:
 				
-				if(dadosProduto[4].isEmpty() || dadosProduto[5].isEmpty() || dadosProduto[6].isEmpty()) {
-					
-					return false;	
-				} else {
+				if(dadosProduto[4].isEmpty() || dadosProduto[6].isEmpty()) {
+					return false;
+				}	else {
 					
 					espessura = Double.parseDouble(dadosProduto[5]);
 					

@@ -22,7 +22,6 @@ public class TelaDeleta implements ActionListener{
 	private JButton capa = new JButton("Capa");
 	private JButton carregador = new JButton("Carregador");
 	private JButton fone = new JButton("Fone");
-	private JButton ajuda = new JButton("Ajuda");
 	private JButton pelicula = new JButton("Pelicula");
 	
 	private JButton pesquisar = new JButton("Pesquisar");
@@ -71,22 +70,22 @@ public class TelaDeleta implements ActionListener{
 		
 		if (src == capa) {
 			aux = 1;
-			buscarProduto(aux);
+			buscarProduto();
 		}
 		
 		if (src == carregador) {
-		
-			
+			aux = 2;
+			buscarProduto();
 		}
 		
 		if (src == pelicula) {
-			
-			
+			aux = 3;
+			buscarProduto();
 		}
 		
 		if (src == fone) {
-			
-			
+			aux = 4;
+			buscarProduto();
 		}
 		
 		if (src == pesquisar) {
@@ -101,6 +100,57 @@ public class TelaDeleta implements ActionListener{
 				for(int i = 0; i < tamanho; i++) {
 					
 					if(dadosProduto[0].equals(estoque.getEstoque().getCapas().get(i).getModelo())){
+						sucesso = true;
+						posicao = i;
+						i = tamanho;
+					}
+					
+				}
+				
+			break;
+			
+			case 2:
+				
+				tamanho = estoque.getEstoque().getCarregadores().size();
+				dadosProduto[0] = inModelo.getText();
+				
+				for(int i = 0; i < tamanho; i++) {
+					
+					if(dadosProduto[0].equals(estoque.getEstoque().getCarregadores().get(i).getModelo())){
+						sucesso = true;
+						posicao = i;
+						i = tamanho;
+					}
+					
+				}
+				
+			break;
+			
+			case 3:
+				
+				tamanho = estoque.getEstoque().getPeliculas().size();
+				dadosProduto[0] = inModelo.getText();
+				
+				for(int i = 0; i < tamanho; i++) {
+					
+					if(dadosProduto[0].equals(estoque.getEstoque().getPeliculas().get(i).getModelo())){
+						sucesso = true;
+						posicao = i;
+						i = tamanho;
+					}
+					
+				}
+				
+			break;
+			
+			case 4:
+				
+				tamanho = estoque.getEstoque().getFones().size();
+				dadosProduto[0] = inModelo.getText();
+				
+				for(int i = 0; i < tamanho; i++) {
+					
+					if(dadosProduto[0].equals(estoque.getEstoque().getFones().get(i).getModelo())){
 						sucesso = true;
 						posicao = i;
 						i = tamanho;
@@ -125,11 +175,7 @@ public class TelaDeleta implements ActionListener{
 		
 	}
 	
-	public void buscarProduto(int aux) {
-		
-		switch(aux) {
-		
-			case 1:
+	public void buscarProduto() {
 				
 				titulo = new JLabel("--Busca--");
 				titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -151,19 +197,6 @@ public class TelaDeleta implements ActionListener{
 				busca.setVisible(true);
 				
 				pesquisar.addActionListener(this);
-				
-			break;
-			
-			case 2:
-			break;
-			
-			case 3:
-			break;
-				
-			case 4:
-			break;
-				
-		}
 		
 	}
 	
