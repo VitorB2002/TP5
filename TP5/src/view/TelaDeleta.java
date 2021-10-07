@@ -36,7 +36,6 @@ public class TelaDeleta implements ActionListener{
 
 	private JTextField inModelo;
 	
-	
 	public void buscaProduto(ControleEstoque e) {
 		
 		estoque = e;

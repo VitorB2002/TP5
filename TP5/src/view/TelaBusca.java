@@ -703,7 +703,8 @@ public class TelaBusca implements ActionListener{
 					+ "\nFiltro Ruído deve ser respondido apenas com s(sim) ou n(não)", null, 
 					JOptionPane.ERROR_MESSAGE);
 		break;
-	}
+		}
+		
 	}
 
 }

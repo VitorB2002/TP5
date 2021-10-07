@@ -17,11 +17,13 @@ public class TelaCadastro implements ActionListener{
 	private JFrame janela = new JFrame("Cadastro");
 	private JFrame cadastra = new JFrame("Cadastrar");
 	private JLabel titulo = new JLabel("PRODUTOS");
+	
 	private JButton capa = new JButton("Capa");
 	private JButton carregador = new JButton("Carregador");
 	private JButton fone = new JButton("Fone");
 	private JButton pelicula = new JButton("Pelicula");
 	private JButton salvar = new JButton("Salvar");
+	
 	private String[] dadosProduto = new String[9];
 	private static ControleEstoque estoque;
 	private int aux;
@@ -212,6 +214,7 @@ public class TelaCadastro implements ActionListener{
 		switch(aux) {
 		
 			case 1:
+				
 				cadastra = new JFrame("Cadastro Capa");
 				titulo = new JLabel("--Cadastrar--");
 				titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -271,9 +274,11 @@ public class TelaCadastro implements ActionListener{
 				cadastra.setVisible(true);
 				
 				salvar.addActionListener(this);
+				
 			break;
 			
 			case 2:
+				
 				cadastra = new JFrame("Cadastro carregador");
 				titulo = new JLabel("--Cadastrar--");
 				titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -323,9 +328,11 @@ public class TelaCadastro implements ActionListener{
 				cadastra.setVisible(true);
 				
 				salvar.addActionListener(this);
+				
 			break;
 			
 			case 3:
+				
 				cadastra = new JFrame("Cadastro Pelicula");
 				titulo = new JLabel("--Cadastrar--");
 				titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -379,9 +386,11 @@ public class TelaCadastro implements ActionListener{
 				cadastra.setVisible(true);
 				
 				salvar.addActionListener(this);
+				
 			break;
 			
 			case 4:
+				
 				cadastra = new JFrame("Cadastra fone");
 				titulo = new JLabel("--Cadastrar--");
 				titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -446,6 +455,7 @@ public class TelaCadastro implements ActionListener{
 				cadastra.setVisible(true);
 				
 				salvar.addActionListener(this);
+				
 			break;
 			
 		}

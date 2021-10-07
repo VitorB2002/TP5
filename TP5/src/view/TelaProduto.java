@@ -6,6 +6,7 @@ import javax.swing.*;
 import controle.*;
 
 public class TelaProduto implements ActionListener{
+	
 	private JFrame janela = new JFrame("Gestor de Produtos");
 	private JLabel titulo = new JLabel("PRODUTOS");
 	private JButton cadastro = new JButton("Cadastro");
@@ -68,8 +69,4 @@ public class TelaProduto implements ActionListener{
 						JOptionPane.INFORMATION_MESSAGE);
 	}
 	
-	public void mensagemInfo() {
-		JOptionPane.showMessageDialog(null, "Função não implementada" , null, 
-						JOptionPane.INFORMATION_MESSAGE);
-	}
 }

@@ -6,8 +6,8 @@ import controle.*;
 
 
 public class TelaCliente implements ActionListener{
-	private JFrame janelaCliente = new JFrame("Gestor de Clientes");
 	
+	private JFrame janelaCliente = new JFrame("Gestor de Clientes");
 	private JButton listar = new JButton("Listar Clientes");
 	private JButton cadastrar = new JButton("Cadastrar Clientes");
 	private JButton buscar = new JButton("Buscar Cliente");
