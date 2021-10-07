@@ -6,9 +6,10 @@ import controle.*;
 
 class TesteCrudProduto {
 	
-	private static ControleEstoque estoque = new ControleEstoque();
+	private ControleEstoque estoque = new ControleEstoque();
 	String[] s = new String[9];
 	String[] s2 = new String[9];
+	String[] s3 = new String[9];
 	/*
 	 * Obs: O String[] que chega neste metodo já está tratado por um try catch na view
 	 * Sendo assim não há possibilidade dos campos que recebem números ou boolean
@@ -19,11 +20,30 @@ class TesteCrudProduto {
 	void testCadastroProduto() {
 		
 		//Teste para Capas
-		String[] s = {"Capinha", "Anti-Impacto","25.6","ASD","Silicone","A8","0.5","Vermelho"};
+		String[] s = {"Capinha", "Anti-Impacto", "25.6", "ASD", "Silicone", "A8", "0.5", "Vermelho"};
 		assertTrue(estoque.editarCadastrarProduto(s, 1, 0));
 		
-		String[] s2 = {"Capinha", "","25.6","ASD","Silicone","A8","0.5","Vermelho"};
+		String[] s2 = {"Capinha", "", "25.6", "ASD", "Silicone", "A8", "0.5", "Vermelho"};
 		assertFalse(estoque.editarCadastrarProduto(s2, 1, 0));
+		
+		String[] s3 = {"","","","","","","",""};
+		assertFalse(estoque.editarCadastrarProduto(s3, 1, 0));
+		
+	}
+	
+	//As exigências para edição são iguais as exigências para oo cadastro
+	@Test
+	void testEdicaoProduto() {
+		
+		//Teste para Capas
+		String[] s = {"Capinha", "Anti-Impacto","25.6","ASD","Silicone","A8","0.5","Vermelho"};
+		assertTrue(estoque.editarCadastrarProduto(s, 2, 0));
+		
+		String[] s2 = {"Capinha", "","25.6","ASD","Silicone","A8","0.5","Vermelho"};
+		assertFalse(estoque.editarCadastrarProduto(s2, 2, 0));
+		
+		String[] s3 = {"","","","","","","",""};
+		assertFalse(estoque.editarCadastrarProduto(s3, 2, 0));
 		
 	}
 
