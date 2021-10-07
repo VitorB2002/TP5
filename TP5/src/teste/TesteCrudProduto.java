@@ -20,6 +20,7 @@ class TesteCrudProduto {
 	 * Sendo assim não há possibilidade dos campos que recebem números ou boolean
 	 * Não estejam de acordo com seus respectivos tipos
 	 * O metodo apenas converte o String[] para criar um objeto
+	 * E garante que o mesmo não possui nenhum campo vazio
 	 * */
 	
 	//Para o metodo de cadastro a posição é irrelevante, logo podemos inserir qualquer número
