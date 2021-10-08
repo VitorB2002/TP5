@@ -7,8 +7,14 @@ import javax.swing.event.ListSelectionEvent;
 
 import controle.*;
 
+/**
+ * Cria telas para cadastrar, buscar e editar clientes 
+ * @author Vitor
+ * @version 1.0
+ */
+
 public class TelaAuxCliente implements ActionListener{
-	
+
 	private JFrame lista = new JFrame("Lista Clientes");
 	private JFrame edita = new JFrame("Editar Cliente");
 	private JFrame busca = new JFrame("Buscar Cliente");
@@ -37,6 +43,13 @@ public class TelaAuxCliente implements ActionListener{
 	private int qtdClientes;
 	private int opcao;
 	private int auxAjuda; //auxAjuda é o indexador das mensagens de ajuda
+	
+	/**
+	 * Define qual tela será mostrada para o usuário
+	 * @param op inteiro que define a tela que será mostrada
+	 * @param d banco de dados que armazena clientes
+	 * @param vetor string array para construir um objeto cliente
+	 */
 	
 	public void auxClient(int op, ControleDados d, String[] vetor) {
 		
@@ -69,6 +82,11 @@ public class TelaAuxCliente implements ActionListener{
 		}
 		
 	}
+	
+	/**
+	 * Define o que acontece quando um botão foi apertado
+	 * @param e evento gerado ao apertar um JButton
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -149,6 +167,10 @@ public class TelaAuxCliente implements ActionListener{
 		
 	}
 	
+	/**
+	 * Constrói e mostra a tela de cadastro
+	 */
+	
 	public void cadastraCliente() {
 		cadastra = new JFrame("CADASTRO");
 		titulo = new JLabel("--Cadastrar--");
@@ -197,6 +219,11 @@ public class TelaAuxCliente implements ActionListener{
 		salvar.addActionListener(this);
 		ajuda.addActionListener(this);
 	}
+	
+	/**
+	 * Constrói e mostra a tela de edição
+	 * @param pos informa a posição do arraylist para mostrar os dados originais do cliente para o usuário editar
+	 */
 	
 	public void editaCliente(int pos) {
 		edita = new JFrame("Dados Cliente");
@@ -254,6 +281,10 @@ public class TelaAuxCliente implements ActionListener{
 		
 	}
 	
+	/**
+	 * Constrói e mostra a tela de busca
+	 */
+	
 	public void buscarCliente() {
 		
 		busca = new JFrame("BUSCAR");
@@ -281,6 +312,10 @@ public class TelaAuxCliente implements ActionListener{
 		buscar.addActionListener(this);
 		ajuda.addActionListener(this);
 	}
+	
+	/**
+	 * Constroi uma lista com todos os cliente cadastrados
+	 */
 	
 	public void listaCliente() {
 		lista = new JFrame("Lista de clientes");
@@ -310,6 +345,11 @@ public class TelaAuxCliente implements ActionListener{
 		lista.setVisible(true);
 		refresh.addActionListener(this);
 	}
+	
+	/**
+	 * Gera uma mensagem de ajuda para guiar o usuário
+	 * @param auxAjuda define qual mensagem de ajuda deve ser mostrada para o usuário baseado em qual tela o mesmo se encontra
+	 */
 	
 	public void mensagemAjuda(int auxAjuda) {
 		switch(auxAjuda) {
@@ -341,17 +381,29 @@ public class TelaAuxCliente implements ActionListener{
 		
 	}
 	
+	/**
+	 * Informa o sucesso do edição para o usuário
+	 */
+	
 	public void mensagemSucessoBusca() {
 		JOptionPane.showMessageDialog(null, "Cliente encontrado!", null, 
 				JOptionPane.INFORMATION_MESSAGE);
 		busca.dispose();
 	}
 	
+	/**
+	 * Informa os possíveis erros para não realizar a busca
+	 */
+	
 	public void mensagemFalhaBusca() {
 		JOptionPane.showMessageDialog(null, "Cliente não encontrado!"
 				+ "\nInsira um cliente existente", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
+	
+	/**
+	 * Informa o sucesso da edição para o usuário
+	 */
 	
 	public void mensagemSucessoEditar() {
 		JOptionPane.showMessageDialog(null, "Cliente editado com sucesso!" 
@@ -361,12 +413,20 @@ public class TelaAuxCliente implements ActionListener{
 		edita.dispose();
 	}
 	
+	/**
+	 * Informa os possíveis erros para não realizar a edição
+	 */
+	
 	public void mensagemFalhaEditar() {
 		JOptionPane.showMessageDialog(null, "Falha ao editar!"
 				+ "\nNenhum campo deve estar Vazio"
 				+ "\nOs campos cpf e telefone apenas aceitam números(0-9)" , null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
+	
+	/**
+	 * Informa o sucesso do cadastro para o usuário
+	 */
 	
 	public void mensagemSucessoCadastro() {
 		
@@ -377,12 +437,22 @@ public class TelaAuxCliente implements ActionListener{
 		
 	}
 	
+	/**
+	 * Informa os possíveis erros para não realizar a busca
+	 */
+	
 	public void mensagemFalhaCadastro() {
 		JOptionPane.showMessageDialog(null, "Falha ao cadastrar!" 
 				+ "\nOs campos cpf e telefone apenas aceitam números(0-9)"
 				+ "\nOu um(ou mais) dos campos está vazio", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
+	
+	/**
+	 * Listener para a JList
+	 * @param e evento relacionado a lista de clientes
+	 * @deprecated
+	 */
 	
 	public void valueChanged(ListSelectionEvent e) {
 		Object src = e.getSource();

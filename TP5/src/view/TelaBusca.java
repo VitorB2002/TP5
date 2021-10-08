@@ -12,8 +12,14 @@ import javax.swing.JTextField;
 
 import controle.*;
 
+/**
+ * Realiza as buscas por produtos e permite a edição dos mesmos
+ * @author V1tor
+ * @version 1.0
+ */
+
 public class TelaBusca implements ActionListener{
-	
+
 	private static ControleEstoque estoque;
 	private JFrame janela = new JFrame("Busca");
 	private JFrame busca = new JFrame("Busca de Produtos");
@@ -65,6 +71,11 @@ public class TelaBusca implements ActionListener{
 	private JTextField inFiltroRuido;
 	private JTextField inMaterialBorracha;
 	
+	/**
+	 * Cria tela para escolha de produto a ser buscado
+	 * @param e um estoque que armazena e manipula todos os produtos e vendas
+	 */
+	
 	public void buscaProduto(ControleEstoque e) {
 		
 		estoque = e;
@@ -92,6 +103,11 @@ public class TelaBusca implements ActionListener{
 		fone.addActionListener(this);
 		
 	}
+	
+	/**
+	 * Define o que acontece quando um botão foi apertado
+	 * @param e evento gerado ao apertar um JButton
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -208,6 +224,11 @@ public class TelaBusca implements ActionListener{
 			dadosProduto[2] = inValor.getText();
 			dadosProduto[3] = inMarca.getText();
 			
+			/*
+			 * Abaixo em todos os cases há tratamento de excessão para não ocorrer erro na passagem
+			 * de uma string invalida para double
+			 */
+			
 			switch(aux) {
 			
 				case 1:
@@ -312,6 +333,10 @@ public class TelaBusca implements ActionListener{
 		
 	}
 	
+	/**
+	 * Cria tela para busca de produtos atráves do modelo
+	 */
+	
 	public void buscarProduto() {
 				
 		titulo = new JLabel("--Busca--");
@@ -337,319 +362,327 @@ public class TelaBusca implements ActionListener{
 		
 	}
 	
+	/**
+	 * Cria tela para edição do produto
+	 * @param pos informa qual posição do arraylist receberá as alterações
+	 * @param aux informa qual o produto para criar a tela equivalente
+	 */
+	
 	public void editaProduto(int pos, int aux) {
 		
 		String s = new String();
 		
 		switch(aux) {
 		
-		case 1:
-			
-			edita = new JFrame("Editar Capa");
-			titulo = new JLabel("--Editar--");
-			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(135, 10, 150, 30);
-			
-			s = Double.toString(estoque.getEstoque().getCapas().get(pos).getValor());
-			
-			inModelo = new JTextField(40);
-			inDescricao = new JTextField(100);
-			inValor = new JTextField(10);
-			inMarca = new JTextField(20);
-			inMaterial = new JTextField(30);
-			inCelularCompativel = new JTextField(30);
-			inPeso = new JTextField(10);
-			inCor = new JTextField(25);
-			
-			inModelo.setText(estoque.getEstoque().getCapas().get(pos).getModelo());
-			inDescricao.setText(estoque.getEstoque().getCapas().get(pos).getDescricao());
-			inValor.setText(s);
-			inMarca.setText(estoque.getEstoque().getCapas().get(pos).getMarca());
-			inMaterial.setText(estoque.getEstoque().getCapas().get(pos).getMaterial());
-			inCelularCompativel.setText(estoque.getEstoque().getCapas().get(pos).getCelularCompativel());
-			
-			s = Double.toString(estoque.getEstoque().getCapas().get(pos).getPeso());
-			
-			inPeso.setText(s);
-			inCor.setText(estoque.getEstoque().getCapas().get(pos).getCor());
-			
-			inModelo.setBounds(120, 80, 200, 25);
-			inDescricao.setBounds(120, 120, 200, 25);
-			inValor.setBounds(120, 160, 200, 25);
-			inMarca.setBounds(120, 200, 200, 25);
-			inMaterial.setBounds(120, 240, 200, 25);
-			inCelularCompativel.setBounds(180, 280, 140, 25);
-			inPeso.setBounds(120, 320, 200, 25);
-			inCor.setBounds(120, 360, 200, 25);
-			
-			modelo.setBounds(50, 80, 200, 25);
-			descricao.setBounds(50, 120, 200, 25);
-			valor.setBounds(50, 160, 200, 25);
-			marca.setBounds(50, 200, 200, 25);
-			material.setBounds(50, 240, 200, 25);
-			celularCompativel.setBounds(50, 280, 200, 25);
-			peso.setBounds(50, 320, 200, 25);
-			cor.setBounds(50, 360, 200, 25);
-			
-			editar.setBounds(120, 400, 75, 25);
-			
-			edita.add(titulo);
-			edita.add(modelo);
-			edita.add(descricao);
-			edita.add(valor);
-			edita.add(marca);
-			edita.add(material);
-			edita.add(celularCompativel);
-			edita.add(peso);
-			edita.add(cor);
-			
-			edita.add(inModelo);
-			edita.add(inDescricao);
-			edita.add(inValor);
-			edita.add(inMarca);
-			edita.add(inMaterial);
-			edita.add(inCelularCompativel);
-			edita.add(inPeso);
-			edita.add(inCor);
-			edita.add(editar);
-			
-			edita.setLayout(null);
-			edita.setSize(400, 500);
-			edita.setVisible(true);
-			
-			editar.addActionListener(this);
-			
-		break;
-		
-		case 2:
-			
-			edita = new JFrame("Editar Carregador");
-			titulo = new JLabel("--Editar--");
-			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(135, 10, 150, 30);
-			
-			s = Double.toString(estoque.getEstoque().getCarregadores().get(pos).getValor());
-			
-			inModelo = new JTextField(40);
-			inDescricao = new JTextField(100);
-			inValor = new JTextField(10);
-			inMarca = new JTextField(20);
-			inTamanhoCabo = new JTextField(10);
-			inPotencia = new JTextField(10);
-			
-			inModelo.setText(estoque.getEstoque().getCarregadores().get(pos).getModelo());
-			inDescricao.setText(estoque.getEstoque().getCarregadores().get(pos).getDescricao());
-			inValor.setText(s);
-			inMarca.setText(estoque.getEstoque().getCarregadores().get(pos).getMarca());
-			s = Double.toString(estoque.getEstoque().getCarregadores().get(pos).getTamanhoCabo());
-			inTamanhoCabo.setText(s);
-			s = Double.toString(estoque.getEstoque().getCarregadores().get(pos).getPotencia());
-			inPotencia.setText(s);
-			
-			inModelo.setBounds(120, 80, 200, 25);
-			inDescricao.setBounds(120, 120, 200, 25);
-			inValor.setBounds(120, 160, 200, 25);
-			inMarca.setBounds(120, 200, 200, 25);
-			inTamanhoCabo.setBounds(170, 240, 150, 25);
-			inPotencia.setBounds(130, 280, 190, 25);
-			
-			modelo.setBounds(50, 80, 200, 25);
-			descricao.setBounds(50, 120, 200, 25);
-			valor.setBounds(50, 160, 200, 25);
-			marca.setBounds(50, 200, 200, 25);
-			tamanhoCabo.setBounds(50, 240, 200, 25);
-			potencia.setBounds(50, 280, 200, 25);
-			
-			editar.setBounds(120, 320, 75, 25);
-			
-			edita.add(titulo);
-			edita.add(modelo);
-			edita.add(descricao);
-			edita.add(valor);
-			edita.add(marca);
-			edita.add(tamanhoCabo);
-			edita.add(potencia);
-			
-			edita.add(inModelo);
-			edita.add(inDescricao);
-			edita.add(inValor);
-			edita.add(inMarca);
-			edita.add(inTamanhoCabo);
-			edita.add(inPotencia);
-			edita.add(editar);
-			
-			edita.setLayout(null);
-			edita.setSize(400, 400);
-			edita.setVisible(true);
-			
-			editar.addActionListener(this);
-			
-		break;
-		
-		case 3:
-			
-			edita = new JFrame("Editar Pelicula");
-			titulo = new JLabel("--Editar--");
-			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(135, 10, 150, 30);
-			
-			s = Double.toString(estoque.getEstoque().getPeliculas().get(pos).getValor());
-			
-			inModelo = new JTextField(40);
-			inDescricao = new JTextField(100);
-			inValor = new JTextField(10);
-			inMarca = new JTextField(20);
-			inMaterial = new JTextField(30);
-			inEspessura = new JTextField(10);
-			inCelularCompativel = new JTextField(30);
-			
-			inModelo.setBounds(120, 80, 200, 25);
-			inDescricao.setBounds(120, 120, 200, 25);
-			inValor.setBounds(120, 160, 200, 25);
-			inMarca.setBounds(120, 200, 200, 25);
-			inMaterial.setBounds(120, 240, 200, 25);
-			inEspessura.setBounds(150, 280, 170, 25);
-			inCelularCompativel.setBounds(180, 320, 140, 25);
-			
-			inModelo.setText(estoque.getEstoque().getPeliculas().get(pos).getModelo());
-			inDescricao.setText(estoque.getEstoque().getPeliculas().get(pos).getDescricao());
-			inValor.setText(s);
-			inMarca.setText(estoque.getEstoque().getPeliculas().get(pos).getMarca());
-			s = Double.toString(estoque.getEstoque().getPeliculas().get(pos).getEspessura());
-			inMaterial.setText(estoque.getEstoque().getPeliculas().get(pos).getMaterial());
-			inEspessura.setText(s);
-			inCelularCompativel.setText(estoque.getEstoque().getPeliculas().get(pos).getCelularCompativel());
-			
-			modelo.setBounds(50, 80, 200, 25);
-			descricao.setBounds(50, 120, 200, 25);
-			valor.setBounds(50, 160, 200, 25);
-			marca.setBounds(50, 200, 200, 25);
-			material.setBounds(50, 240, 200, 25);
-			espessura.setBounds(50, 280, 200, 25);
-			celularCompativel.setBounds(50, 320, 200, 25);
-			
-			editar.setBounds(120, 360, 75, 25);
-			
-			edita.add(titulo);
-			edita.add(modelo);
-			edita.add(descricao);
-			edita.add(valor);
-			edita.add(marca);
-			edita.add(material);
-			edita.add(espessura);
-			edita.add(celularCompativel);
-			
-			
-			edita.add(inModelo);
-			edita.add(inDescricao);
-			edita.add(inValor);
-			edita.add(inMarca);
-			edita.add(inMaterial);
-			edita.add(inEspessura);
-			edita.add(inCelularCompativel);
-			edita.add(editar);
-			
-			edita.setLayout(null);
-			edita.setSize(400, 400);
-			edita.setVisible(true);
-			
-			editar.addActionListener(this);
-			
-		break;
-			
-		case 4:
-			
-			edita = new JFrame("Editar Fone");
-			titulo = new JLabel("--Editar--");
-			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(135, 10, 150, 30);
-			
-			s = Double.toString(estoque.getEstoque().getPeliculas().get(pos).getValor());
-			inModelo = new JTextField(40);
-			inDescricao = new JTextField(100);
-			inValor = new JTextField(10);
-			inMarca = new JTextField(20);
-			inPeso = new JTextField(20);
-			inTipoConexao = new JTextField(4);
-			inFiltroRuido = new JTextField(10);
-			inCor = new JTextField(25);
-			inMaterialBorracha = new JTextField(30);
-			
-			inModelo.setText(estoque.getEstoque().getFones().get(pos).getModelo());;
-			inDescricao.setText(estoque.getEstoque().getFones().get(pos).getModelo());
-			inValor.setText(s);
-			inMarca.setText(estoque.getEstoque().getFones().get(pos).getMarca());
-			s = Double.toString(estoque.getEstoque().getFones().get(pos).getPeso());
-			inPeso.setText(s);
-			inTipoConexao.setText(estoque.getEstoque().getFones().get(pos).getTipoConexao());
-			
-				if(estoque.getEstoque().getFones().get(pos).isFiltroRuido()) {
-					s = "s";
-				} else {
-					s = "n";
-				}
+			case 1:
 				
-			inFiltroRuido.setText(s);
-			inCor.setText(estoque.getEstoque().getFones().get(pos).getCor());
-			inMaterialBorracha.setText(estoque.getEstoque().getFones().get(pos).getMaterialBorracha());
+				edita = new JFrame("Editar Capa");
+				titulo = new JLabel("--Editar--");
+				titulo.setFont(new Font("Arial", Font.BOLD, 20));
+				titulo.setBounds(135, 10, 150, 30);
+				
+				s = Double.toString(estoque.getEstoque().getCapas().get(pos).getValor());
+				
+				inModelo = new JTextField(40);
+				inDescricao = new JTextField(100);
+				inValor = new JTextField(10);
+				inMarca = new JTextField(20);
+				inMaterial = new JTextField(30);
+				inCelularCompativel = new JTextField(30);
+				inPeso = new JTextField(10);
+				inCor = new JTextField(25);
+				
+				inModelo.setText(estoque.getEstoque().getCapas().get(pos).getModelo());
+				inDescricao.setText(estoque.getEstoque().getCapas().get(pos).getDescricao());
+				inValor.setText(s);
+				inMarca.setText(estoque.getEstoque().getCapas().get(pos).getMarca());
+				inMaterial.setText(estoque.getEstoque().getCapas().get(pos).getMaterial());
+				inCelularCompativel.setText(estoque.getEstoque().getCapas().get(pos).getCelularCompativel());
+				
+				s = Double.toString(estoque.getEstoque().getCapas().get(pos).getPeso());
+				
+				inPeso.setText(s);
+				inCor.setText(estoque.getEstoque().getCapas().get(pos).getCor());
+				
+				inModelo.setBounds(120, 80, 200, 25);
+				inDescricao.setBounds(120, 120, 200, 25);
+				inValor.setBounds(120, 160, 200, 25);
+				inMarca.setBounds(120, 200, 200, 25);
+				inMaterial.setBounds(120, 240, 200, 25);
+				inCelularCompativel.setBounds(180, 280, 140, 25);
+				inPeso.setBounds(120, 320, 200, 25);
+				inCor.setBounds(120, 360, 200, 25);
+				
+				modelo.setBounds(50, 80, 200, 25);
+				descricao.setBounds(50, 120, 200, 25);
+				valor.setBounds(50, 160, 200, 25);
+				marca.setBounds(50, 200, 200, 25);
+				material.setBounds(50, 240, 200, 25);
+				celularCompativel.setBounds(50, 280, 200, 25);
+				peso.setBounds(50, 320, 200, 25);
+				cor.setBounds(50, 360, 200, 25);
+				
+				editar.setBounds(120, 400, 75, 25);
+				
+				edita.add(titulo);
+				edita.add(modelo);
+				edita.add(descricao);
+				edita.add(valor);
+				edita.add(marca);
+				edita.add(material);
+				edita.add(celularCompativel);
+				edita.add(peso);
+				edita.add(cor);
+				
+				edita.add(inModelo);
+				edita.add(inDescricao);
+				edita.add(inValor);
+				edita.add(inMarca);
+				edita.add(inMaterial);
+				edita.add(inCelularCompativel);
+				edita.add(inPeso);
+				edita.add(inCor);
+				edita.add(editar);
+				
+				edita.setLayout(null);
+				edita.setSize(400, 500);
+				edita.setVisible(true);
+				
+				editar.addActionListener(this);
+				
+			break;
 			
-			inModelo.setBounds(120, 80, 200, 25);
-			inDescricao.setBounds(120, 120, 200, 25);
-			inValor.setBounds(120, 160, 200, 25);
-			inMarca.setBounds(120, 200, 200, 25);
-			inPeso.setBounds(120, 240, 200, 25);
-			inTipoConexao.setBounds(120, 280, 200, 25);
-			inFiltroRuido.setBounds(170, 320, 150, 25);
-			inCor.setBounds(120, 360, 200, 25);
-			inMaterialBorracha.setBounds(170, 400, 150, 25);
+			case 2:
+				
+				edita = new JFrame("Editar Carregador");
+				titulo = new JLabel("--Editar--");
+				titulo.setFont(new Font("Arial", Font.BOLD, 20));
+				titulo.setBounds(135, 10, 150, 30);
+				
+				s = Double.toString(estoque.getEstoque().getCarregadores().get(pos).getValor());
+				
+				inModelo = new JTextField(40);
+				inDescricao = new JTextField(100);
+				inValor = new JTextField(10);
+				inMarca = new JTextField(20);
+				inTamanhoCabo = new JTextField(10);
+				inPotencia = new JTextField(10);
+				
+				inModelo.setText(estoque.getEstoque().getCarregadores().get(pos).getModelo());
+				inDescricao.setText(estoque.getEstoque().getCarregadores().get(pos).getDescricao());
+				inValor.setText(s);
+				inMarca.setText(estoque.getEstoque().getCarregadores().get(pos).getMarca());
+				s = Double.toString(estoque.getEstoque().getCarregadores().get(pos).getTamanhoCabo());
+				inTamanhoCabo.setText(s);
+				s = Double.toString(estoque.getEstoque().getCarregadores().get(pos).getPotencia());
+				inPotencia.setText(s);
+				
+				inModelo.setBounds(120, 80, 200, 25);
+				inDescricao.setBounds(120, 120, 200, 25);
+				inValor.setBounds(120, 160, 200, 25);
+				inMarca.setBounds(120, 200, 200, 25);
+				inTamanhoCabo.setBounds(170, 240, 150, 25);
+				inPotencia.setBounds(130, 280, 190, 25);
+				
+				modelo.setBounds(50, 80, 200, 25);
+				descricao.setBounds(50, 120, 200, 25);
+				valor.setBounds(50, 160, 200, 25);
+				marca.setBounds(50, 200, 200, 25);
+				tamanhoCabo.setBounds(50, 240, 200, 25);
+				potencia.setBounds(50, 280, 200, 25);
+				
+				editar.setBounds(120, 320, 75, 25);
+				
+				edita.add(titulo);
+				edita.add(modelo);
+				edita.add(descricao);
+				edita.add(valor);
+				edita.add(marca);
+				edita.add(tamanhoCabo);
+				edita.add(potencia);
+				
+				edita.add(inModelo);
+				edita.add(inDescricao);
+				edita.add(inValor);
+				edita.add(inMarca);
+				edita.add(inTamanhoCabo);
+				edita.add(inPotencia);
+				edita.add(editar);
+				
+				edita.setLayout(null);
+				edita.setSize(400, 400);
+				edita.setVisible(true);
+				
+				editar.addActionListener(this);
+				
+			break;
 			
-			modelo.setBounds(50, 80, 200, 25);
-			descricao.setBounds(50, 120, 200, 25);
-			valor.setBounds(50, 160, 200, 25);
-			marca.setBounds(50, 200, 200, 25);
-			peso.setBounds(50, 240, 200, 25);
-			tipoConexao.setBounds(50, 280, 200, 25);
-			filtroRuido.setBounds(50, 320, 200, 25);
-			cor.setBounds(50, 360, 200, 25);
-			materialBorracha.setBounds(50, 400, 200, 25);
+			case 3:
+				
+				edita = new JFrame("Editar Pelicula");
+				titulo = new JLabel("--Editar--");
+				titulo.setFont(new Font("Arial", Font.BOLD, 20));
+				titulo.setBounds(135, 10, 150, 30);
+				
+				s = Double.toString(estoque.getEstoque().getPeliculas().get(pos).getValor());
+				
+				inModelo = new JTextField(40);
+				inDescricao = new JTextField(100);
+				inValor = new JTextField(10);
+				inMarca = new JTextField(20);
+				inMaterial = new JTextField(30);
+				inEspessura = new JTextField(10);
+				inCelularCompativel = new JTextField(30);
+				
+				inModelo.setBounds(120, 80, 200, 25);
+				inDescricao.setBounds(120, 120, 200, 25);
+				inValor.setBounds(120, 160, 200, 25);
+				inMarca.setBounds(120, 200, 200, 25);
+				inMaterial.setBounds(120, 240, 200, 25);
+				inEspessura.setBounds(150, 280, 170, 25);
+				inCelularCompativel.setBounds(180, 320, 140, 25);
+				
+				inModelo.setText(estoque.getEstoque().getPeliculas().get(pos).getModelo());
+				inDescricao.setText(estoque.getEstoque().getPeliculas().get(pos).getDescricao());
+				inValor.setText(s);
+				inMarca.setText(estoque.getEstoque().getPeliculas().get(pos).getMarca());
+				s = Double.toString(estoque.getEstoque().getPeliculas().get(pos).getEspessura());
+				inMaterial.setText(estoque.getEstoque().getPeliculas().get(pos).getMaterial());
+				inEspessura.setText(s);
+				inCelularCompativel.setText(estoque.getEstoque().getPeliculas().get(pos).getCelularCompativel());
+				
+				modelo.setBounds(50, 80, 200, 25);
+				descricao.setBounds(50, 120, 200, 25);
+				valor.setBounds(50, 160, 200, 25);
+				marca.setBounds(50, 200, 200, 25);
+				material.setBounds(50, 240, 200, 25);
+				espessura.setBounds(50, 280, 200, 25);
+				celularCompativel.setBounds(50, 320, 200, 25);
+				
+				editar.setBounds(120, 360, 75, 25);
+				
+				edita.add(titulo);
+				edita.add(modelo);
+				edita.add(descricao);
+				edita.add(valor);
+				edita.add(marca);
+				edita.add(material);
+				edita.add(espessura);
+				edita.add(celularCompativel);
+				
+				
+				edita.add(inModelo);
+				edita.add(inDescricao);
+				edita.add(inValor);
+				edita.add(inMarca);
+				edita.add(inMaterial);
+				edita.add(inEspessura);
+				edita.add(inCelularCompativel);
+				edita.add(editar);
+				
+				edita.setLayout(null);
+				edita.setSize(400, 400);
+				edita.setVisible(true);
+				
+				editar.addActionListener(this);
+				
+			break;
+				
+			case 4:
+				
+				edita = new JFrame("Editar Fone");
+				titulo = new JLabel("--Editar--");
+				titulo.setFont(new Font("Arial", Font.BOLD, 20));
+				titulo.setBounds(135, 10, 150, 30);
+				
+				s = Double.toString(estoque.getEstoque().getPeliculas().get(pos).getValor());
+				inModelo = new JTextField(40);
+				inDescricao = new JTextField(100);
+				inValor = new JTextField(10);
+				inMarca = new JTextField(20);
+				inPeso = new JTextField(20);
+				inTipoConexao = new JTextField(4);
+				inFiltroRuido = new JTextField(10);
+				inCor = new JTextField(25);
+				inMaterialBorracha = new JTextField(30);
+				
+				inModelo.setText(estoque.getEstoque().getFones().get(pos).getModelo());;
+				inDescricao.setText(estoque.getEstoque().getFones().get(pos).getModelo());
+				inValor.setText(s);
+				inMarca.setText(estoque.getEstoque().getFones().get(pos).getMarca());
+				s = Double.toString(estoque.getEstoque().getFones().get(pos).getPeso());
+				inPeso.setText(s);
+				inTipoConexao.setText(estoque.getEstoque().getFones().get(pos).getTipoConexao());
+				
+					if(estoque.getEstoque().getFones().get(pos).isFiltroRuido()) {
+						s = "s";
+					} else {
+						s = "n";
+					}
+					
+				inFiltroRuido.setText(s);
+				inCor.setText(estoque.getEstoque().getFones().get(pos).getCor());
+				inMaterialBorracha.setText(estoque.getEstoque().getFones().get(pos).getMaterialBorracha());
+				
+				inModelo.setBounds(120, 80, 200, 25);
+				inDescricao.setBounds(120, 120, 200, 25);
+				inValor.setBounds(120, 160, 200, 25);
+				inMarca.setBounds(120, 200, 200, 25);
+				inPeso.setBounds(120, 240, 200, 25);
+				inTipoConexao.setBounds(120, 280, 200, 25);
+				inFiltroRuido.setBounds(170, 320, 150, 25);
+				inCor.setBounds(120, 360, 200, 25);
+				inMaterialBorracha.setBounds(170, 400, 150, 25);
+				
+				modelo.setBounds(50, 80, 200, 25);
+				descricao.setBounds(50, 120, 200, 25);
+				valor.setBounds(50, 160, 200, 25);
+				marca.setBounds(50, 200, 200, 25);
+				peso.setBounds(50, 240, 200, 25);
+				tipoConexao.setBounds(50, 280, 200, 25);
+				filtroRuido.setBounds(50, 320, 200, 25);
+				cor.setBounds(50, 360, 200, 25);
+				materialBorracha.setBounds(50, 400, 200, 25);
+				
+				editar.setBounds(120, 440, 75, 25);
+				
+				edita.add(titulo);
+				edita.add(modelo);
+				edita.add(descricao);
+				edita.add(valor);
+				edita.add(marca);
+				edita.add(peso);
+				edita.add(tipoConexao);
+				edita.add(filtroRuido);
+				edita.add(cor);
+				edita.add(materialBorracha);
+				
+				edita.add(inModelo);
+				edita.add(inDescricao);
+				edita.add(inValor);
+				edita.add(inMarca);
+				edita.add(inPeso);
+				edita.add(inTipoConexao);
+				edita.add(inFiltroRuido);
+				edita.add(inCor);
+				edita.add(inMaterialBorracha);
+				edita.add(editar);
+				
+				edita.setLayout(null);
+				edita.setSize(400, 520);
+				edita.setVisible(true);
+				
+				editar.addActionListener(this);
+				
+			break;
 			
-			editar.setBounds(120, 440, 75, 25);
-			
-			edita.add(titulo);
-			edita.add(modelo);
-			edita.add(descricao);
-			edita.add(valor);
-			edita.add(marca);
-			edita.add(peso);
-			edita.add(tipoConexao);
-			edita.add(filtroRuido);
-			edita.add(cor);
-			edita.add(materialBorracha);
-			
-			edita.add(inModelo);
-			edita.add(inDescricao);
-			edita.add(inValor);
-			edita.add(inMarca);
-			edita.add(inPeso);
-			edita.add(inTipoConexao);
-			edita.add(inFiltroRuido);
-			edita.add(inCor);
-			edita.add(inMaterialBorracha);
-			edita.add(editar);
-			
-			edita.setLayout(null);
-			edita.setSize(400, 520);
-			edita.setVisible(true);
-			
-			editar.addActionListener(this);
-			
-		break;
-			
-	}
+		}
 		
 	}
 	
-	
+	/**
+	 * Informa que a busca foi realizada com sucesso
+	 */
 	
 	public void mensagemSucessoBusca() {
 		JOptionPane.showMessageDialog(null, "Produto encontrado!", null, 
@@ -657,10 +690,18 @@ public class TelaBusca implements ActionListener{
 				busca.dispose();
 	}
 	
+	/**
+	 * Informa que a busca falhou
+	 */
+	
 	public void mensagemFalhaBusca() {
 		JOptionPane.showMessageDialog(null, "Produto não encontrado!", null, 
 				JOptionPane.ERROR_MESSAGE);
 	}
+	
+	/**
+	 * Informa que a edição foi realizada com sucesso
+	 */
 	
 	public void mensagemSucessoEditar() {
 		JOptionPane.showMessageDialog(null, "Produto editado com sucesso!" 
@@ -670,39 +711,44 @@ public class TelaBusca implements ActionListener{
 				edita.dispose();
 	}
 	
+	/**
+	 * Informa que a edição foi realizada com sucesso
+	 * @param aux informa os possíveis erros baseado na tela de edição usada 
+	 */
+	
 	public void mensagemFalhaEditar(int aux) {
 		
 		switch(aux) {
 		
-		case 1:
-			JOptionPane.showMessageDialog(null, "Falha ao editar!" 
-					+ "\nOs campos não podem estar vazios"
-					+ "\nOs campos valor e peso devem ser preenchidos por números", null, 
-					JOptionPane.ERROR_MESSAGE);
-		
-		break;
+			case 1:
+				JOptionPane.showMessageDialog(null, "Falha ao editar!" 
+						+ "\nOs campos não podem estar vazios"
+						+ "\nOs campos valor e peso devem ser preenchidos por números", null, 
+						JOptionPane.ERROR_MESSAGE);
 			
-		case 2:
-			JOptionPane.showMessageDialog(null, "Falha ao editar!" 
-					+ "\nNenhum dos campos deve estar vazio"
-					+ "\nOs campos valor, tamanho cabo e potência devem ser preenchidos por números", null, 
-					JOptionPane.ERROR_MESSAGE);
-		break;
-		
-		case 3:
-			JOptionPane.showMessageDialog(null, "Falha ao editar!" 
-					+ "\nNenhum dos campos deve estar vazio"
-					+ "\nOs campos valor e espessura devem ser preenchidos por números", null, 
-					JOptionPane.ERROR_MESSAGE);
-		break;
+			break;
+				
+			case 2:
+				JOptionPane.showMessageDialog(null, "Falha ao editar!" 
+						+ "\nNenhum dos campos deve estar vazio"
+						+ "\nOs campos valor, tamanho cabo e potência devem ser preenchidos por números", null, 
+						JOptionPane.ERROR_MESSAGE);
+			break;
 			
-		case 4:
-			JOptionPane.showMessageDialog(null, "Falha ao editar!" 
-					+ "\nNenhum dos campos deve estar vazio"
-					+ "\nOs campos valor e peso devem ser preenchidos por números"
-					+ "\nFiltro Ruído deve ser respondido apenas com s(sim) ou n(não)", null, 
-					JOptionPane.ERROR_MESSAGE);
-		break;
+			case 3:
+				JOptionPane.showMessageDialog(null, "Falha ao editar!" 
+						+ "\nNenhum dos campos deve estar vazio"
+						+ "\nOs campos valor e espessura devem ser preenchidos por números", null, 
+						JOptionPane.ERROR_MESSAGE);
+			break;
+				
+			case 4:
+				JOptionPane.showMessageDialog(null, "Falha ao editar!" 
+						+ "\nNenhum dos campos deve estar vazio"
+						+ "\nOs campos valor e peso devem ser preenchidos por números"
+						+ "\nFiltro Ruído deve ser respondido apenas com s(sim) ou n(não)", null, 
+						JOptionPane.ERROR_MESSAGE);
+			break;
 		}
 		
 	}

@@ -5,8 +5,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
 
+/**
+ * Cria a tela para manipulação dos produtos
+ * @author Vitor
+ * @version 1.0
+ */
+
 public class TelaProduto implements ActionListener{
-	
+
 	private JFrame janela = new JFrame("Gestor de Produtos");
 	private JLabel titulo = new JLabel("PRODUTOS");
 	private JButton cadastro = new JButton("Cadastro");
@@ -15,6 +21,10 @@ public class TelaProduto implements ActionListener{
 	private JButton ajuda = new JButton("Ajuda");
 	private static ControleEstoque estoque;
 	
+	/**
+	 * Constrói a tela produtos
+	 * @param e um estoque que armazena e manipula todos os produtos e vendas
+	 */
 	public void mostrarTela(ControleEstoque e) {
 		estoque = e;
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
@@ -41,6 +51,11 @@ public class TelaProduto implements ActionListener{
 		
 	}
 	
+	/**
+	 * Define o que acontece quando um botão foi apertado
+	 * @param e evento gerado ao apertar um JButton
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -61,6 +76,10 @@ public class TelaProduto implements ActionListener{
 		}
 		
 	}
+	
+	/**
+	 * Gera uma mensagem de ajuda para guiar o usuário
+	 */
 	
 	public void mensagemAjuda() {
 		JOptionPane.showMessageDialog(null, "Nesta tela será possível manipular produtos" 

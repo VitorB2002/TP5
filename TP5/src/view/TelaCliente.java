@@ -4,9 +4,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import controle.*;
 
+/**
+ * Cria tela para manipulação de objetos cliente
+ * @author Vitor
+ * @version 1.0
+ */
 
 public class TelaCliente implements ActionListener{
-	
+
 	private JFrame janelaCliente = new JFrame("Gestor de Clientes");
 	private JButton listar = new JButton("Listar Clientes");
 	private JButton cadastrar = new JButton("Cadastrar Clientes");
@@ -14,6 +19,12 @@ public class TelaCliente implements ActionListener{
 	private JButton ajuda = new JButton("Ajuda");
 	private static ControleDados dados;
 	private String[] dadosCliente = new String[5];
+	
+	/**
+	 * Constrói a tela
+	 * @param d banco de dados que armazena clientes cadastrados
+	 * @return void
+	 */
 	
 	public void mostrarTela(ControleDados d) {
 		
@@ -40,6 +51,11 @@ public class TelaCliente implements ActionListener{
 		ajuda.addActionListener(this);
 	}
 	
+	/**
+	 * Define o que acontece quando um botão foi apertado
+	 * @param e evento gerado ao apertar um JButton
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -61,6 +77,10 @@ public class TelaCliente implements ActionListener{
 		}
 		
 	}
+	
+	/**
+	 * Gera uma mensagem de ajuda para guiar o usuário
+	 */
 	
 	public void mensagemAjuda() {
 		JOptionPane.showMessageDialog(null, "Nesta tela poderemos manipular os dados de um cliente" 

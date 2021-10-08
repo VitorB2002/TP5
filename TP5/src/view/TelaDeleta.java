@@ -12,8 +12,14 @@ import javax.swing.JTextField;
 
 import controle.ControleEstoque;
 
+/**
+ * Cria as telas para deletar os produtos
+ * @author V1tor
+ * @version 1.0
+ */
+
 public class TelaDeleta implements ActionListener{
-	
+
 	private static ControleEstoque estoque;
 	private JFrame janela = new JFrame("Deleta");
 	private JFrame busca = new JFrame("Busca");
@@ -35,6 +41,11 @@ public class TelaDeleta implements ActionListener{
 	private JLabel modelo = new JLabel("Modelo:");
 
 	private JTextField inModelo;
+	
+	/**
+	 * Cria tela para escolha de produto a ser buscado
+	 * @param e um estoque que armazena e manipula todos os produtos e vendas
+	 */
 	
 	public void buscaProduto(ControleEstoque e) {
 		
@@ -63,6 +74,11 @@ public class TelaDeleta implements ActionListener{
 		fone.addActionListener(this);
 		
 	}
+	
+	/**
+	 * Define o que acontece quando um botão foi apertado
+	 * @param e evento gerado ao apertar um JButton
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -174,6 +190,10 @@ public class TelaDeleta implements ActionListener{
 		
 	}
 	
+	/**
+	 * Cria tela para busca de produtos atráves do modelo
+	 */
+	
 	public void buscarProduto() {
 				
 				titulo = new JLabel("--Busca--");
@@ -199,11 +219,19 @@ public class TelaDeleta implements ActionListener{
 		
 	}
 	
+	/**
+	 * Informa ao usuário que o produto foi deletado com sucesso
+	 */
+	
 	public void mensagemSucessoDeleta() {
 		JOptionPane.showMessageDialog(null, "Produto deletado com sucesso!" , null, 
 				JOptionPane.INFORMATION_MESSAGE);
 				busca.dispose();
 	}
+	
+	/**
+	 * Informa ao usuário que o produto pesquisado não existe
+	 */
 	
 	public void mensagemFalhaDeleta() {
 		JOptionPane.showMessageDialog(null, "Produto não encontrado!" , null, 

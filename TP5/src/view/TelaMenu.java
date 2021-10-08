@@ -6,6 +6,12 @@ import javax.swing.*;
 
 import controle.*;
 
+/**
+ * Cria a primeira tela e constroi o estoque e os dados a partir de dados pré cadastrados
+ * @author Vitor
+ * @version 1.0
+ */
+
 public class TelaMenu implements ActionListener {
 	
 	private static JFrame janela = new JFrame("Acessórios p/ Celular");
@@ -18,6 +24,10 @@ public class TelaMenu implements ActionListener {
 	private static JButton ajuda = new JButton("Ajuda");
 	private static ControleDados dados = new ControleDados();
 	private static ControleEstoque estoque = new ControleEstoque(); 
+	
+	/**
+	 *Constrói a tela inicial do código
+	 */
 	
 	public TelaMenu() {
 		
@@ -49,6 +59,11 @@ public class TelaMenu implements ActionListener {
 		janela.setVisible(true);
 	}
 	
+	/**
+	 * Inicia a main
+	 * @param args Parâmetro padrão da main
+	 */
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TelaMenu menu = new TelaMenu();
@@ -61,6 +76,11 @@ public class TelaMenu implements ActionListener {
 		venda.addActionListener(menu);
 		ajuda.addActionListener(menu);
 	}
+	
+	/**
+	 * Define o que acontece quando um botão foi apertado
+	 * @param e evento gerado ao apertar um JButton
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -85,6 +105,10 @@ public class TelaMenu implements ActionListener {
 	
 	}
 	
+	/**
+	 *Gera uma mensagem para mostrar ao usuário o que o programa faz
+	 */
+	
 	public void mensagemAjuda() {
 			
 			JOptionPane.showMessageDialog(null, "O programa possui 5 objetos de cada cadastrados" 
@@ -92,6 +116,10 @@ public class TelaMenu implements ActionListener {
 					JOptionPane.INFORMATION_MESSAGE);
 			
 		}
+	
+	/**
+	 *Gera uma mensagem para informar as partes não implementadas
+	 */
 	
 	public void mensagemInfo() {
 		

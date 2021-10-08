@@ -12,6 +12,12 @@ import javax.swing.JTextField;
 
 import controle.ControleEstoque;
 
+/**
+ * Cria e gerencia as multiplas telas para cadastrar um produto
+ * @author Vitor
+ * @version 1.0
+ */
+
 public class TelaCadastro implements ActionListener{
 	
 	private JFrame janela = new JFrame("Cadastro");
@@ -60,6 +66,11 @@ public class TelaCadastro implements ActionListener{
 	
 	private boolean sucesso;
 	
+	/**
+	 * Cria tela para escolha de produto a ser cadastrado
+	 * @param e um estoque que armazena e manipula todos os produtos e vendas
+	 */
+	
 	public void cadastra(ControleEstoque e) {
 		
 		estoque = e;
@@ -87,6 +98,11 @@ public class TelaCadastro implements ActionListener{
 		fone.addActionListener(this);
 	}
 	
+	/**
+	 * Define o que acontece quando um botão foi apertado
+	 * @param e evento gerado ao apertar um JButton
+	 */
+	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		
@@ -111,6 +127,11 @@ public class TelaCadastro implements ActionListener{
 		}
 		
 		if (src == salvar) {
+			
+			/*
+			 * Abaixo em todos os cases há tratamento de excessão para não ocorrer erro na passagem
+			 * de uma string invalida para double
+			 */
 			
 			switch(aux) {
 			
@@ -208,6 +229,11 @@ public class TelaCadastro implements ActionListener{
 		}
 		
 	}
+	
+	/**
+	 * Cria tela de cadastro baseada no produto escolhido
+	 * @param aux define qual tela de cadastro será mostrada
+	 */
 	
 	public void cadastraProduto(int aux) {
 		
@@ -462,6 +488,10 @@ public class TelaCadastro implements ActionListener{
 		
 	}
 	
+	/**
+	 * Informa o sucesso do cadastro para o usuário
+	 */
+	
 	public void mensagemSucessoCadastro() {
 
 		JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!" 
@@ -469,6 +499,11 @@ public class TelaCadastro implements ActionListener{
 				JOptionPane.INFORMATION_MESSAGE);
 		cadastra.dispose();
 	}
+	
+	/**
+	 * Informa a falha do cadastro para o usuário
+	 * @param aux informa os possíveis erros baseado na tela de cadastro usada
+	 */
 	
 	public void mensagemFalhaCadastro(int aux) {
 		
@@ -506,5 +541,4 @@ public class TelaCadastro implements ActionListener{
 		
 	}
 	
-
 }

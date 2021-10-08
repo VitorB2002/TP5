@@ -6,9 +6,14 @@ import javax.swing.*;
 
 import controle.*;
 
+/**
+ * Cria telas para realização do cadastro e edição de venda 
+ * @author V1tor
+ * @version 1.0
+ */
 
 public class TelaVenda implements ActionListener{
-	
+
 	private static ControleEstoque estoque;
 	private static ControleDados dados;
 	private static JFrame janela = new JFrame("Gestor de Vendas");
@@ -27,6 +32,12 @@ public class TelaVenda implements ActionListener{
 	private JLabel nome = new JLabel("Nome:");
 	private JTextField inModelo;
 	private JTextField inNome;
+	
+	/**
+	 * Cria tela para gerenciar objeto venda
+	 * @param e um estoque que armazena e manipula todos os produtos e vendas
+	 * @param d banco de dados que armazena clientes
+	 */
 	
 	public void mostrarTela(ControleEstoque e, ControleDados d) {
 		
@@ -54,6 +65,11 @@ public class TelaVenda implements ActionListener{
 		cadastra.addActionListener(this);
 		ajuda.addActionListener(this);
 	}
+	
+	/**
+	 * Define o que acontece quando um botão foi apertado
+	 * @param e evento gerado ao apertar um JButton
+	 */
 	
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
@@ -303,6 +319,7 @@ public class TelaVenda implements ActionListener{
 				}
 			}
 			
+			//Buscando clientes que deem match
 			tamanho = dados.getDados().getClientes().size();
 			
 			for(int i = 0; i < tamanho; i++) {
@@ -330,6 +347,10 @@ public class TelaVenda implements ActionListener{
 		}
 
 	}
+	
+	/**
+	 * Cria tela para cadastro da venda
+	 */
 	
 	public void cadastrarVenda() {
 		
@@ -365,6 +386,10 @@ public class TelaVenda implements ActionListener{
 			
 	}
 	
+	/**
+	 * Cria tela para a edição da venda
+	 */
+	
 	public void editaVenda() {
 		
 		titulo = new JLabel("Edição de Venda");
@@ -397,6 +422,10 @@ public class TelaVenda implements ActionListener{
 		ajuda2.addActionListener(this);
 	}
 	
+	/**
+	 * Informa o sucesso do cadastro para o usuário
+	 */
+	
 	public void mensagemSucessoCadastro() {
 		
 		JOptionPane.showMessageDialog(null, "A venda foi registrada" 
@@ -404,6 +433,10 @@ public class TelaVenda implements ActionListener{
 				JOptionPane.INFORMATION_MESSAGE);
 		
 	}
+	
+	/**
+	 * Informa o falha do cadastro para o usuário
+	 */
 	
 	public void mensagemFalhaCadastro() {
 		
@@ -414,6 +447,10 @@ public class TelaVenda implements ActionListener{
 		
 	}
 	
+	/**
+	 * Informa o sucesso da edição para o usuário
+	 */
+	
 	public void mensagemSucessoEditar() {
 		
 		JOptionPane.showMessageDialog(null, "Venda encontrada" 
@@ -421,6 +458,10 @@ public class TelaVenda implements ActionListener{
 				JOptionPane.INFORMATION_MESSAGE);
 		
 	}
+	
+	/**
+	 * Informa a falha da edição para o usuário
+	 */
 	
 	public void mensagemFalhaEditar() {
 		
@@ -430,12 +471,20 @@ public class TelaVenda implements ActionListener{
 		
 	}
 	
+	/**
+	 * Gera uma mensagem de ajuda para guiar o usuário
+	 */
+	
 	public void mensagemAjuda() {
 		JOptionPane.showMessageDialog(null, "Nesta tela será possível cadastrar e editar vendas" 
 				+ "\nUma venda atrela um produto a um cliente"
 				+ "\nObs: Ambos devem estar cadastrados para dar certo", null, 
 						JOptionPane.INFORMATION_MESSAGE);
 	}
+	
+	/**
+	 * Gera uma segunda mensagem de ajuda para guiar o usuário
+	 */
 	
 	public void mensagemAjuda2() {
 		JOptionPane.showMessageDialog(null, "Insira no campo nome, o nome de um cliente existente" 
