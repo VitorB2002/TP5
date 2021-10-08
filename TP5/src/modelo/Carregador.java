@@ -13,7 +13,7 @@ public class Carregador extends Produto {
 	
 
 	/**
-	 * Construtor
+	 * Construtor Carregador
 	 */
 	
 	public Carregador() {
@@ -21,7 +21,7 @@ public class Carregador extends Produto {
 	}
 	
 	/**
-	 * Construtor
+	 * Construtor Carregador
 	 * @param modelo informa o modelo do produto
 	 * @param descricao informa os detalhas do produto
 	 * @param valor informa o valor do produto

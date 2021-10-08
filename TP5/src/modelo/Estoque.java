@@ -2,6 +2,12 @@ package modelo;
 
 import java.util.ArrayList;
 
+/**
+ * Define os atributos e comportamento do estoque
+ * @author Vitor
+ * @version 1.0
+ */
+
 public class Estoque {
 	
 	private ArrayList<Capa> capas = new ArrayList<>();
@@ -16,61 +22,141 @@ public class Estoque {
 	private int qtdFone = 0;
 	private int qtdVenda = 0;
 	
+	/**
+	 * Adiciona um objeto Capa ao ArrayList
+	 * @param capa objeto capa com todos os dados
+	 */
+	
 	public void cadastraCapa(Capa capa) {
 		this.capas.add(capa);
 	}
+	
+	/**
+	 * Edita um objeto Capa previamente adicionado ao ArrayList
+	 * @param capa objeto capa com todos os dados
+	 * @param pos informa a posição da capa a ser editada na lista
+	 */
 	
 	public void editaCapa(Capa capa, int pos) {
 		this.capas.set(pos, capa);
 	}
 	
+	/**
+	 * Retira o objeto Capa do ArrayList
+	 * @param pos
+	 */
+	
 	public void deletaCapa(int pos) {
 		this.capas.remove(pos);
 	}
+	
+	/**
+	 * Adiciona um objeto Carregador ao ArrayList
+	 * @param carregador objeto carregador com todos os dados
+	 */
 	
 	public void cadastraCarregador(Carregador carregador) {
 		this.carregadores.add(carregador);
 	}
 	
+	/**
+	 * Edita um objeto carregador previamente adicionado ao ArrayList
+	 * @param carregador objeto carregador com todos os dados
+	 * @param pos informa a posição do carregador a ser editada na lista
+	 */
+	
 	public void editaCarregador(Carregador carregador, int pos) {
 		this.carregadores.set(pos, carregador);
 	}
+	
+	/**
+	 * Retira o objeto Carregador do ArrayList
+	 * @param pos
+	 */
 	
 	public void deletaCarregador(int pos) {
 		this.carregadores.remove(pos);
 	}
 	
+	/**
+	 * Adiciona um objeto Pelicula ao ArrayList
+	 * @param pelicula objeto pelicula com todos os dados
+	 */
+	
 	public void cadastraPelicula(Pelicula pelicula) {
 		this.peliculas.add(pelicula);
 	}
+	
+	/**
+	 * Edita um objeto pelicula previamente adicionado ao ArrayList
+	 * @param pelicula objeto pelicula com todos os dados
+	 * @param pos informa a posição do pelicula a ser editada na lista
+	 */
 	
 	public void editaPelicula(Pelicula pelicula, int pos) {
 		this.peliculas.set(pos, pelicula);
 	}
 	
+	/**
+	 * Retira o objeto pelicula do ArrayList
+	 * @param pos
+	 */
+	
 	public void deletaPelicula(int pos) {
 		this.peliculas.remove(pos);
 	}
+	
+	/**
+	 * Adiciona um objeto Fone ao ArrayList
+	 * @param fone objeto fone com todos os dados
+	 */
+	
 	
 	public void cadastraFone(Fone fone) {
 		this.fones.add(fone);
 	}
 	
+	/**
+	 * Edita um objeto fone previamente adicionado ao ArrayList
+	 * @param fone objeto fone com todos os dados
+	 * @param pos informa a posição do fone a ser editada na lista
+	 */
+	
 	public void editaFone(Fone fone, int pos) {
 		this.fones.set(pos, fone);
 	}
+	
+	/**
+	 * Retira o objeto fone do ArrayList
+	 * @param pos
+	 */
 	
 	public void deletaFone(int pos) {
 		this.fones.remove(pos);
 	}
 	
+	/**
+	 * Adiciona um objeto Venda ao ArrayList
+	 * @param venda objeto venda com todos os dados
+	 */
+	
 	public void cadastraVenda(Venda venda) {
 		this.vendas.add(venda);
 	}
 	
+	/**
+	 * Edita um objeto venda previamente adicionado ao ArrayList
+	 * @param venda objeto venda com todos os dados
+	 * @param pos informa a posição do venda a ser editada na lista
+	 */
+	
 	public void editaVenda(Venda venda, int pos) {
 		this.vendas.set(pos, venda);
 	}
+	
+	/**
+	 * Cadastra 5 Capas, 5 Carregadores, 5 Peliculas e 5 Fones ao ArrayList
+	 */
 	
 	public void gerarDados(){
 		int aux;
@@ -114,6 +200,16 @@ public class Estoque {
 			
 	}
 	
+	/**
+	 * Metodo que gerava o relatorio na main antiga
+	 * @deprecated
+	 * @param qtdCarregador informa a quantidade de Carregadores no estoque
+	 * @param qtdPelicula informa a quantidade de Peliculas no estoque
+	 * @param qtdCapa informa a quantidade de Capas no estoque
+	 * @param qtdFone informa a quantidade de Fones no estoque
+	 * @param vendas informa a quantidade de Vendas no estoque
+	 */
+	
 	public void relatorioProdutos(int qtdCarregador, int qtdPelicula, int qtdCapa, int qtdFone, int vendas) {
 		String saida;
 		int qtdProduto = qtdCarregador + qtdPelicula + qtdCapa + qtdFone;
@@ -125,6 +221,13 @@ public class Estoque {
 		saida += "\nVendas realizadas: " + vendas;
 		System.out.println(saida);
 	}
+	
+	/**
+	 * Metodo que gerava o historico na main antiga
+	 * @deprecated
+	 * @param qtdVenda informa a quantidade de Vendas no estoque
+	 * @param venda objeto venda para que seja possível pegar os dados do cliente e o produto comprado
+	 */
 	
 	public void gerarHistorico(int qtdVenda, Venda venda) {
 		String saida;

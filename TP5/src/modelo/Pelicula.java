@@ -13,7 +13,7 @@ public class Pelicula extends Produto{
 	private String celularCompativel;
 
 	/**
-	 * Construtor
+	 * Construtor Pelicula
 	 */
 	
 	public Pelicula() {
@@ -21,7 +21,7 @@ public class Pelicula extends Produto{
 	}
 	
 	/**
-	 * Construtor
+	 * Construtor Pelicula
 	 * @param modelo informa o modelo do produto
 	 * @param descricao informa os detalhas do produto
 	 * @param valor informa o valor do produto

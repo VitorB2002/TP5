@@ -23,7 +23,6 @@ public class TelaCliente implements ActionListener{
 	/**
 	 * Constrói a tela
 	 * @param d banco de dados que armazena clientes cadastrados
-	 * @return void
 	 */
 	
 	public void mostrarTela(ControleDados d) {

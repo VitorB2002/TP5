@@ -1,5 +1,11 @@
 package modelo;
 
+/**
+ * Define os atributos e metodos do objeto Cliente
+ * @author Vitor
+ * @version 1.0
+ */
+
 public class Cliente {
 	
 	private String nome;
@@ -8,11 +14,22 @@ public class Cliente {
 	private String email;
 	private String telefone;
 	
-	//Constructor
+	/**
+	 * Construtor Cliente
+	 */
 	
 	public Cliente() {
 		
 	}
+	
+	/**
+	 * Construtor Cliente
+	 * @param nome informa o nome do cliente
+	 * @param cpf informa o cpf do cliente
+	 * @param endereco informa o endereço do cliente
+	 * @param email informa o email do cliente
+	 * @param telefone informa o telefone do cliente
+	 */
 	
 	public Cliente(String nome, String cpf, String endereco, String email, String telefone) {
 		this.nome = nome;
