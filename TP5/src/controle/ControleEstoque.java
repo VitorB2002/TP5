@@ -238,8 +238,6 @@ private Estoque e = new Estoque();
 		Pelicula pelicula = new Pelicula();
 		Fone fone = new Fone();
 		
-		
-		
 		switch(opcao) {
 		//Cases impares = cadastro
 		//Cases pares = editar
