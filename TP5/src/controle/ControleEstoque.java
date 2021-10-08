@@ -448,7 +448,6 @@ private Estoque e = new Estoque();
 					e.cadastraFone(fone);
 				}
 				
-				
 			break;
 			
 			case 8:

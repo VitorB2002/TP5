@@ -10,7 +10,6 @@ public class Carregador extends Produto {
 	
 	private double tamanhoCabo;
 	private double potencia;
-	
 
 	/**
 	 * Construtor Carregador

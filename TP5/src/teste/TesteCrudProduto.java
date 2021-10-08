@@ -21,7 +21,7 @@ class TesteCrudProduto {
 	 * Não estejam de acordo com seus respectivos tipos
 	 * O metodo apenas converte o String[] para criar um objeto
 	 * E garante que o mesmo não possui nenhum campo vazio
-	 * */
+	 */
 	
 	//Para o metodo de cadastro a posição é irrelevante, logo podemos inserir qualquer número
 	@Test
@@ -93,7 +93,7 @@ class TesteCrudProduto {
 		 * são movimentados 1 index para a esquerda.
 		 * Logo na comparação abaixo estaremos comparando Capa0 com Capa1
 		 * o que retornará false
-		 * */
+		 */
 		
 		sucesso = s[0].equals(estoque.getEstoque().getCapas().get(0).getModelo());
 		

@@ -14,7 +14,6 @@ class TesteCrudVenda {
 	String[] dadosProduto = new String[9];
 	private int aux;//Aux informa qual o tipo de produto vendido Capa = 1, Carregador = 2, Pelicula = 3, Fone = 4
 	
-	
 	//Os dados que chegam para este metódo já são validados por códigos na view, logo o msm sempre retorna true
 	@Test
 	void testCadastroVenda() {

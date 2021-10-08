@@ -13,14 +13,13 @@ class TesteCrudCliente {
 	private int aux;
 	private int posicao;
 	
-	
 	/*
 	 * O metodo editarCadastrarCliente realiza o cadastro e a edição do mesmo
 	 * Para isso o mesmo valida se os dados recebidos são validos
 	 * Ou seja:
 	 * Nenhum campo deve estar vazio 
 	 * Os campos cpf e telefone apenas recebem números
-	 * */
+	 */
 	
 	@Test
 	void testCadastroCliente() {
