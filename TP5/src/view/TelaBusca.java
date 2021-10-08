@@ -14,7 +14,7 @@ import controle.*;
 
 /**
  * Realiza as buscas por produtos e permite a edição dos mesmos
- * @author V1tor
+ * @author Vitor
  * @version 1.0
  */
 

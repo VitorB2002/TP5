@@ -1,5 +1,11 @@
 package modelo;
 
+/**
+ * Define os atributos e metodos do objeto Carregador
+ * @author Vitor
+ * @version 1.0
+ */
+
 public class Fone extends Produto {
 	
 	private double peso;
@@ -7,11 +13,27 @@ public class Fone extends Produto {
 	private boolean filtroRuido;
 	private String cor;
 	private String materialBorracha;
+
+	/**
+	 * Construtor
+	 */
 	
-	//Constructor
 	public Fone() {
 		
 	}
+	
+	/**
+	 * Construtor
+	 * @param modelo informa o modelo do produto
+	 * @param descricao informa os detalhas do produto
+	 * @param valor informa o valor do produto
+	 * @param marca informa a marca do produto
+	 * @param peso informa o peso do produto
+	 * @param tipoConexao informa a conexão do produto
+	 * @param filtroRuido informa se o produto possui filtro de ruídos
+	 * @param cor informa a cor do produto
+	 * @param materialBorracha informa o material das borrachas do produto
+	 */
 	
 	public Fone(String modelo, String descricao, double valor, String marca, double peso, String tipoConexao, boolean filtroRuido, String cor, String materialBorracha) {
 		this.modelo = modelo;
@@ -24,6 +46,11 @@ public class Fone extends Produto {
 		this.cor = cor;
 		this.materialBorracha = materialBorracha;
 	}
+	
+	/**
+	 * Metodo toString utilizado na antiga main
+	 * @deprecated
+	 */
 	
 	public String toString() {
 		String saida;

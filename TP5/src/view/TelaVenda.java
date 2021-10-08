@@ -8,7 +8,7 @@ import controle.*;
 
 /**
  * Cria telas para realização do cadastro e edição de venda 
- * @author V1tor
+ * @author Vitor
  * @version 1.0
  */
 

@@ -1,5 +1,11 @@
 package modelo;
 
+/**
+ * Classe pai produto, não instanciável
+ * @author Vitor
+ * @version 1.0
+ */
+
 public abstract class Produto {
 	
 	protected String modelo;
